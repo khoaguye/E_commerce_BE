@@ -3,33 +3,33 @@ import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken" //npm install jsonwebtoken
 // import { FormCheck } from "react-bootstrap";
 
-export const registerUser = (req, res)=>{
-    const q = "SELECT * FROM user WHERE email = ? OR username = ?"
-    db.query(q,[req.body.email, req.body.username], (err, data)=>{
-        if(err) return res.json
-        if(data.length) return res.status(409).json("user already exists")
+export const registerUser = (req, res) => {
+  const q = "SELECT * FROM user WHERE email = ? OR username = ?"
+  db.query(q, [req.body.email, req.body.username], (err, data) => {
+    if (err) return res.json
+    if (data.length) return res.status(409).json("user already exists")
 
-        //hashy the pass
-        const salt = bcrypt.genSaltSync(10);
-        const hash = bcrypt.hashSync(req.body.pw, salt);
 
-        const q = "INSERT INTO user(`fname`,`lname`,`username`, `pw`,`email`, `address`, `phone`, `role`) VALUES (?)"
-        const values = [
-            req.body.fname,
-            req.body.lname,
-            req.body.username,
-            hash,
-            req.body.email,
-            req.body.address,
-            req.body.phone,
-            req.body.role //adding `role`
-        ]
+    const salt = bcrypt.genSaltSync(10);
+    const hash = bcrypt.hashSync(req.body.pw, salt);
+    //adding `role`
+    const q = "INSERT INTO user (`fname`,`lname`,`username`, `pw`,`email`, `address`, `phone`, `role`) VALUES (?)"
+    const values = [
+      req.body.fname,
+      req.body.lname,
+      req.body.username,
+      hash,
+      req.body.email,
+      req.body.address,
+      req.body.phone,
+      req.body.role //adding `role`
+    ]
 
-        db.query(q, [values], (err, data)=>{
-            if (err) return res.json(err);
-            return res.status(200).json("Sahara : USER CREATED")
-        })
+    db.query(q, [values], (err, data) => {
+      if (err) return res.json(err);
+      return res.status(200).json("Sahara : USER CREATED")
     })
+  })
 
 }
 
@@ -48,7 +48,7 @@ export const login = (req, res) => {
       if (!checkPassword)
         return res.status(400).json("Incorrect password");
   
-      const token = jwt.sign({ id: data[0].id }, "secretkey", {expiresIn: "59m"});
+      const token = jwt.sign({ id: data[0].id, role: data[0].role}, "secretkey", {expiresIn: "59m"});
   
       const { password, ...others } = data[0];
   
@@ -57,7 +57,7 @@ export const login = (req, res) => {
           httpOnly: true,
         })
         .status(200)
-        .json(others);
+        .json({ data: others, token: token });
     });
   };
 
@@ -124,3 +124,12 @@ const values = [
     });
   });
 };
+
+export const getAdmin = ((req, res) =>{
+  const q = `SELECT * FROM user WHERE user.role = "admin"`
+
+  db.query(q, [req.query], (error, result) =>{
+    if (error) return res.send("hello, i am an error")
+      return res.status(200).json(result)
+  })
+})

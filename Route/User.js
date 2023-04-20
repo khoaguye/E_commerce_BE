@@ -5,7 +5,6 @@ import {middlewareController} from "../Controller/MiddlewareController.js";
 
 const router = express.Router();
 
-
 router.post("/register", registerUser)
 router.post("/login", login)
 router.post("/logout", logout)

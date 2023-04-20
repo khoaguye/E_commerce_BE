@@ -14,9 +14,7 @@ app.use((req, res, next) => {
     next();
 });
 app.use(
-    cors({
-      origin: "http://localhost:3000",
-    })
+   cors()
 );
 app.use(cookieParser()) 
 app.use("/api/product", productRouter)

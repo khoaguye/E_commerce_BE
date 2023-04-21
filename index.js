@@ -6,7 +6,7 @@ import promoteCode from "./Route/PromotionCode.js"
 import cors from "cors" //npm install cors
 import cookieParser from "cookie-parser"//npm install cookie-parser
 const app = express()
-const cors = require('cors');
+//const cors = require('cors');
 app.use(express.json())
 
 // app.use((req, res, next) => {

@@ -9,10 +9,10 @@ const app = express()
 //const cors = require('cors');
 app.use(express.json())
 
-// app.use((req, res, next) => {
-//     res.header("Access-Control-Allow-Credentials", true);
-//     next();
-// });
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Credentials", true);
+    next();
+});
 
 const corsOptions ={
     origin:'*', 

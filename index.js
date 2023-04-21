@@ -6,13 +6,21 @@ import promoteCode from "./Route/PromotionCode.js"
 import cors from "cors" //npm install cors
 import cookieParser from "cookie-parser"//npm install cookie-parser
 const app = express()
-
+const cors = require('cors');
 app.use(express.json())
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Credentials", true);
     next();
 });
+
+const corsOptions ={
+    origin:'*', 
+    methods: ["GET","POST","PUT","DELETE"],
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
 app.use(
    cors()
 );

@@ -9,10 +9,10 @@ const app = express()
 const cors = require('cors');
 app.use(express.json())
 
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Credentials", true);
-    next();
-});
+// app.use((req, res, next) => {
+//     res.header("Access-Control-Allow-Credentials", true);
+//     next();
+// });
 
 const corsOptions ={
     origin:'*', 
@@ -21,9 +21,9 @@ const corsOptions ={
     optionSuccessStatus:200
 }
 app.use(cors(corsOptions));
-app.use(
-   cors()
-);
+// app.use(
+//    cors()
+// );
 app.use(cookieParser()) 
 app.use("/api/product", productRouter)
 app.use("/api/user", userInfor)

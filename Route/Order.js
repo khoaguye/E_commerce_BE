@@ -11,7 +11,9 @@ const router = express.Router();
 //     optionSuccessStatus:200
 // }
 // router.use(cors(corsOptions));
-
+router.use(
+    cors()
+); 
 router.get("/allOrder", allOrder)
 router.get("/historyOrder", historyOrder)
 router.post("/orderByUid", getOrderByUid)

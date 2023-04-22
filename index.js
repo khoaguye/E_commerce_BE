@@ -37,7 +37,7 @@
 // app.listen(8800,()=>{
 //     console.log('connected')
 // })
-app.use(express.json())
+
 import express from "express";
 import productRouter from "./Route/Product.js"
 import userInfor from "./Route/User.js"
@@ -47,7 +47,7 @@ import cors from "cors" //npm install cors
 import cookieParser from "cookie-parser"//npm install cookie-parser
 
 const app = express()
-
+app.use(express.json())
 const allowedOrigins = ['https://e-commerce-fe-ynjo.vercel.app', 'http://e-commerce-fe-ynjo.vercel.app'];
 const corsOptions ={
     origin: allowedOrigins, 

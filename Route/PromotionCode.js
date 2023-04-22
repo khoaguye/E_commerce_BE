@@ -1,6 +1,7 @@
 
 // route for each e
 import express from "express"
+import cors from "cors"
 const router = express.Router();
 import { updatePromo, addPromo, allPromotions, deletePromotion, getOneCode, getCodeByCategory } from "../Controller/PromotionCode.js";
 const allowedOrigins = ['https://e-commerce-fe-ynjo.vercel.app/', 'http://e-commerce-fe-ynjo.vercel.app/'];

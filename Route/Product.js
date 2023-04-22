@@ -1,4 +1,5 @@
 import express from "express"
+import cors from "cors"
 import { allProduct,productContent, productDetail,category, productCategory,searchProduct, addProduct,updateProduct,deleteProduct} from "../Controller/Product.js"
 const router = express.Router();
 const allowedOrigins = ['https://e-commerce-fe-ynjo.vercel.app/', 'http://e-commerce-fe-ynjo.vercel.app/'];

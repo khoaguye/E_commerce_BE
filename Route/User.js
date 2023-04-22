@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors"
 import { login, logout, registerUser, testget, deleteUser, updateUser, getAdmin } from "../Controller/User.js";
 
 import {middlewareController} from "../Controller/MiddlewareController.js";

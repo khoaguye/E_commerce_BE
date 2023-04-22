@@ -37,7 +37,7 @@
 // app.listen(8800,()=>{
 //     console.log('connected')
 // })
-
+app.use(express.json())
 import express from "express";
 import productRouter from "./Route/Product.js"
 import userInfor from "./Route/User.js"
@@ -57,7 +57,7 @@ const corsOptions ={
 }
 
 app.use(cors(corsOptions));
-app.use(express.json())
+
 app.use(cookieParser()) 
 
 app.use("/api/product", productRouter)

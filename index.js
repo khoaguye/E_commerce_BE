@@ -15,7 +15,7 @@ const app = express()
 //     res.header('Access-Control-Allow-Origin', '*');
 //     next();
 // });
-const allowedOrigins = ['https://e-commerce-fe-ynjo.vercel.app/', 'http://e-commerce-fe-ynjo.vercel.app/', 'http://localhost:3000'];
+const allowedOrigins = ['https://e-commerce-fe-ynjo.vercel.app', 'http://e-commerce-fe-ynjo.vercel.app', 'http://localhost:3000'];
 const corsOptions ={
     origin:allowedOrigins, 
     methods: ["GET","POST","PUT","DELETE"],

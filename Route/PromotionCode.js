@@ -11,7 +11,7 @@ const router = express.Router();
 //     credentials:true,            //access-control-allow-credentials:true
 //     optionSuccessStatus:200
 // }
-router.use(cors(corsOptions));
+//router.use(cors(corsOptions));
 router.get("/allPromotions", allPromotions)
 router.delete("/deletePromotion", deletePromotion)
 router.post("/addPromo", addPromo)

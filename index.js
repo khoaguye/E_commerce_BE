@@ -36,9 +36,9 @@ app.use(cors({
       callback(new Error('Not allowed by CORS'));
     }
   },
-  methods: ["GET","POST","PUT","DELETE"],
+  //methods: ["GET","POST","PUT","DELETE"],
   credentials:true,            //access-control-allow-credentials:true
-  optionSuccessStatus:200
+   //optionSuccessStatus:200
 }));
 app.use(cookieParser()) 
 app.use("/api/product", productRouter)

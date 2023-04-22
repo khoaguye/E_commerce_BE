@@ -12,9 +12,9 @@ const router = express.Router();
 // router.use(cors(corsOptions));
 
 //router.get("/productContent", productContent)
-router.use(
-    cors()
-); 
+// router.use(
+//     cors()
+// ); 
 router.get("/allProduct", allProduct)
 router.get("/productContent", productContent)
 router.get("/productDetail/:id", productDetail)

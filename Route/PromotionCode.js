@@ -12,9 +12,9 @@ const router = express.Router();
 //     optionSuccessStatus:200
 // }
 //router.use(cors(corsOptions));
-router.use(
-    cors()
-);  
+// router.use(
+//     cors()
+// );  
 router.get("/allPromotions", allPromotions)
 router.delete("/deletePromotion", deletePromotion)
 router.post("/addPromo", addPromo)

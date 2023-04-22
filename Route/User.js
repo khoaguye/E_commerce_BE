@@ -13,9 +13,9 @@ const router = express.Router();
 //     optionSuccessStatus:200
 // }
 // router.use(cors(corsOptions));
-router.use(
-    cors()
-); 
+// router.use(
+//     cors()
+// ); 
 router.post("/register", registerUser)
 router.post("/login", login)
 router.post("/logout", logout)

@@ -7,7 +7,7 @@ import cors from "cors" //npm install cors
 import cookieParser from "cookie-parser"//npm install cookie-parser
 const app = express()
 //const cors = require('cors');
-app.use(express.json())
+
 
 // app.use((req, res, next) => {
 //     res.header("Access-Control-Allow-Credentials", true);
@@ -23,6 +23,7 @@ const corsOptions ={
     optionSuccessStatus:200
 }
 app.use(cors(corsOptions));
+app.use(express.json())
 // app.use(
 //    cors()
 // ); 

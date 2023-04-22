@@ -9,12 +9,12 @@ const app = express()
 //const cors = require('cors');
 
 
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Credentials", true);
-    res.header('Access-Control-Allow-Methods', '*');
-    res.header('Access-Control-Allow-Origin', '*');
-    next();
-});
+// app.use((req, res, next) => {
+//     res.header("Access-Control-Allow-Credentials", true);
+//     res.header('Access-Control-Allow-Methods', '*');
+//     res.header('Access-Control-Allow-Origin', '*');
+//     next();
+// });
 const allowedOrigins = ['https://e-commerce-fe-ynjo.vercel.app/', 'http://e-commerce-fe-ynjo.vercel.app/'];
 const corsOptions ={
     origin:allowedOrigins, 

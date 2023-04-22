@@ -15,18 +15,18 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     next();
 });
+const allowedOrigins = ['https://e-commerce-fe-ynjo.vercel.app/', 'http://e-commerce-fe-ynjo.vercel.app/'];
+const corsOptions ={
+    origin:allowedOrigins, 
+    methods: ["GET","POST","PUT","DELETE"],
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
+// app.use(
+//    cors()
+// ); 
 
-// const corsOptions ={
-//     origin:'*', 
-//     methods: ["GET","POST","PUT","DELETE"],
-//     credentials:true,            //access-control-allow-credentials:true
-//     optionSuccessStatus:200
-// }
-// app.use(cors(corsOptions));
-app.use(
-   cors()
-); 
-// const allowedOrigins = ['https://e-commerce-fe-ynjo.vercel.app/', 'http://e-commerce-fe-ynjo.vercel.app/'];
 
 // app.use(cors({
 //   origin: function (origin, callback) {

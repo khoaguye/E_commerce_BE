@@ -125,6 +125,22 @@ const values = [
   });
 };
 
+const updateProfile = (req, res) => {
+  const id = req.body.id
+  const lname = req.body.lname
+  const fname=  req.body.fname
+  const email =  req.body.email
+  const address =  req.body.address
+  const phone =  req.body.phone
+
+  const q = `UPDATE products SET fname = "${fname}", lname = "${lname}", email = "${email}",  address = "${address}", phone = "${phone}", category = "${category}", amount = ${amount}" WHERE id = ${id}`
+
+  db.query(q, (error, results)=>{
+    if(error) throw error;
+    res.json({message: " User successfull updated"})
+  })  
+}
+
 export const getAdmin = ((req, res) =>{
   const q = `SELECT * FROM user WHERE user.role = "admin"`
 

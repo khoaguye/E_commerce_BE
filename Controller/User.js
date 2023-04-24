@@ -125,7 +125,7 @@ const values = [
   });
 };
 
-const updateProfile = (req, res) => {
+export const updateProfile = (req, res) => {
   const id = req.body.id
   const lname = req.body.lname
   const fname=  req.body.fname
@@ -133,11 +133,12 @@ const updateProfile = (req, res) => {
   const address =  req.body.address
   const phone =  req.body.phone
 
-  const q = `UPDATE products SET fname = "${fname}", lname = "${lname}", email = "${email}",  address = "${address}", phone = "${phone}", category = "${category}", amount = ${amount}" WHERE id = ${id}`
+  const q = `UPDATE user SET fname = "${fname}", lname = "${lname}", email = "${email}",  address = "${address}", phone = "${phone}" WHERE id = ${id}`
 
-  db.query(q, (error, results)=>{
+  db.query(q, (error, result)=>{
     if(error) throw error;
-    res.json({message: " User successfull updated"})
+    return res.status(200).json({message: " User successfull updated"})
+    // res.json({message: " User successfull updated"})
   })  
 }
 
@@ -146,6 +147,6 @@ export const getAdmin = ((req, res) =>{
 
   db.query(q, [req.query], (error, result) =>{
     if (error) return res.send("hello, i am an error")
-      return res.status(200).json(result)
+    return res.status(200).json(result)
   })
 })

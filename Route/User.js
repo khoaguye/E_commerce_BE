@@ -23,6 +23,6 @@ router.get("/testGet", testget)
 router.delete("/deleteUser/:id", deleteUser)
 router.put("/updateUser/:id", updateUser)
 router.get("/getAdmin", middlewareController.verifyTokenAndAdminAuth, getAdmin)
-router.put("/updateProfie", middlewareController.verifyToken, updateProfile)
+router.put("/updateProfile", middlewareController.verifyToken, updateProfile)
 
 export default router

@@ -107,10 +107,11 @@ export const addProduct = (req, res) =>{
     req.body.price,
     req.body.images,
     req.body.brand,
-    req.body.category
+    req.body.category,
+    req.body.amount
    ]
     // Insert the new product into the database
-   const q = "INSERT INTO products (`title`, `description`, `price`, `images`, `brand`, `category`) VALUES (?)"
+   const q = "INSERT INTO products (`title`, `description`, `price`, `images`, `brand`, `category`,`amount`) VALUES (?)"
    db.query(
      q, [values], (error, result) => {
        if (error) {
@@ -134,7 +135,8 @@ export const updateProduct =(req,res) =>{
   const images =  req.body.images
   const brand =  req.body.brand
   const category=  req.body.category
-  const q = `UPDATE products SET title = "${title}", description = "${description}", price = "${price}",  images = "${images}", brand = "${brand}", category = "${category}" WHERE id = ${id}`
+  const amount= req.body.amount
+  const q = `UPDATE products SET title = "${title}", description = "${description}", price = "${price}",  images = "${images}", brand = "${brand}", category = "${category}", amount = ${amount}" WHERE id = ${id}`
 
   db.query(q, (error, results)=>{
     if(error) throw error;
